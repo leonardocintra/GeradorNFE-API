@@ -1,3 +1,7 @@
 from django.contrib import admin
+from geradornf.models import Emitente
 
-# Register your models here.
+class EmitenteAdmin(admin.ModelAdmin):
+	list_display = ('nome_fantasia', 'nome_razao', )
+
+admin.site.register(Emitente, EmitenteAdmin)

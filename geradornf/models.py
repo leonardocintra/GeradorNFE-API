@@ -24,8 +24,8 @@ class Destinatario(models.Model):
 
 
 class Emitente(models.Model):
-	cnpj = models.CharField(max_length=14)
-	inscricao_estadual = models.CharField(max_length=20)
+    cnpj = models.CharField(max_length=14)
+    inscricao_estadual = models.CharField(max_length=20)
     nome_razao = models.CharField(max_length=200)
     nome_fantasia = models.CharField(max_length=200)
     fone = models.CharField(max_length=13, null=True, blank=True)
@@ -37,12 +37,12 @@ class Emitente(models.Model):
     cidade_codigo = models.IntegerField(blank=True, null=True)
     cidade = models.CharField(max_length=200)
     uf = models.CharField(max_length=2)
-    im = models.CharField(max_length=50)
+    im = models.CharField(max_length=50, blank=True, null=True)
     cnae = models.CharField(max_length=50)
     pais_codigo = models.IntegerField(default=1058)
-    pais = models.CharField(max_length=200)
+    pais = models.CharField(max_length=200, default='Brasil')
 
 
-	class Meta:
-		db_table = 'emitente'
-		ordering = ('nome_fantasia', 'nome_razao', )
+    class Meta:
+        db_table = 'emitente'
+        ordering = ('nome_fantasia', 'nome_razao', )
