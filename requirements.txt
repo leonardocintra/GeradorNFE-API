@@ -1,4 +1,10 @@
+dj-database-url==0.4.1
 Django==1.9.8
 django-filter==0.13.0
 djangorestframework==3.4.0
+gunicorn==19.6.0
 Markdown==2.6.6
+whitenoise==3.2
+
+# comments for local install
+psycopg2==2.6.1

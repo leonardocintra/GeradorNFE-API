@@ -17,7 +17,7 @@ class Destinatario(models.Model):
     uf = models.CharField(max_length=2)
     pais_codigo = models.IntegerField(default=1058)
     pais = models.CharField(max_length=200)
-    data_cadasttro = models.DateTimeField(auto_now=True)
+    data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'destinatario'
@@ -42,7 +42,7 @@ class Emitente(models.Model):
     cnae = models.CharField(max_length=50)
     pais_codigo = models.IntegerField(default=1058)
     pais = models.CharField(max_length=200, default='Brasil')
-    data_cadasttro = models.DateTimeField(auto_now=True)
+    data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'emitente'
@@ -56,7 +56,7 @@ class Produto(models.Model):
     descricao = models.CharField(max_length=300)
     unidade = models.CharField(max_length=2) #fazer um choice
     valor_unitario = models.DecimalField(max_digits=9, decimal_places=2) 
-    data_cadasttro = models.DateTimeField(auto_now=True)
+    data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'produto'
@@ -72,7 +72,7 @@ class Transportador(models.Model):
     cidade_codigo = models.IntegerField(blank=True, null=True)
     cidade = models.CharField(max_length=200)
     uf = models.CharField(max_length=2)
-    data_cadasttro = models.DateTimeField(auto_now=True)
+    data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'transportador'
