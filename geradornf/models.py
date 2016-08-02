@@ -1,4 +1,5 @@
 from django.db import models
+from .constants import UNIDADE_FEDERATIVA
 
 class Destinatario(models.Model):
     cnpj = models.CharField(max_length=14)
@@ -14,7 +15,7 @@ class Destinatario(models.Model):
     bairro = models.CharField(max_length=200)
     cidade_codigo = models.IntegerField(blank=True, null=True)
     cidade = models.CharField(max_length=200)
-    uf = models.CharField(max_length=2)
+    uf = models.CharField(max_length=2, choices=UNIDADE_FEDERATIVA)
     pais_codigo = models.IntegerField(default=1058)
     pais = models.CharField(max_length=200)
     data_cadastro = models.DateTimeField(auto_now=True)
@@ -37,7 +38,7 @@ class Emitente(models.Model):
     bairro = models.CharField(max_length=200)
     cidade_codigo = models.IntegerField(blank=True, null=True)
     cidade = models.CharField(max_length=200)
-    uf = models.CharField(max_length=2)
+    uf = models.CharField(max_length=2, choices=UNIDADE_FEDERATIVA)
     im = models.CharField(max_length=50, blank=True, null=True)
     cnae = models.CharField(max_length=50)
     pais_codigo = models.IntegerField(default=1058)
@@ -71,7 +72,7 @@ class Transportador(models.Model):
     endereco = models.CharField(max_length=200)
     cidade_codigo = models.IntegerField(blank=True, null=True)
     cidade = models.CharField(max_length=200)
-    uf = models.CharField(max_length=2)
+    uf = models.CharField(max_length=2, choices=UNIDADE_FEDERATIVA)
     data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
