@@ -66,7 +66,7 @@ class Produto(models.Model):
 
 class Transportador(models.Model):
     frete_por_conta = models.BooleanField(default=False)
-    cnpf_cnpj = models.CharField(max_length=14)
+    cpf_cnpj = models.CharField(max_length=14)
     inscricao_estadual = models.CharField(max_length=20)
     nome_razao = models.CharField(max_length=200)
     endereco = models.CharField(max_length=200)
