@@ -30,5 +30,5 @@ class TransportadorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Transportador
         fields = ('id', 'url', 'nome_razao', 'cpf_cnpj', 'inscricao_estadual', 'endereco', 'cidade_codigo', \
-                 'cidade', 'uf', 'data_cadastro', 
+                 'cidade', 'uf', 'cep', 'data_cadastro', 
         ) 
