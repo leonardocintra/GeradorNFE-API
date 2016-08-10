@@ -73,6 +73,7 @@ class Transportador(models.Model):
     cidade_codigo = models.IntegerField(blank=True, null=True)
     cidade = models.CharField(max_length=200)
     uf = models.CharField(max_length=2, choices=UNIDADE_FEDERATIVA)
+    cep = models.CharField(max_length=8)
     data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
