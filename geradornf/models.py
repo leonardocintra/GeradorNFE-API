@@ -1,7 +1,13 @@
 from django.db import models
 from .constants import UNIDADE_FEDERATIVA
 
+class Cliente(models.Model):
+    nome = models.CharField(max_length=200)
+    email = models.EmailField()
+    data_cadastro = models.DateTimeField(auto_now=True)
+
 class Destinatario(models.Model):
+    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     cnpj = models.CharField(max_length=14)
     indicador_ie_destinatario = models.IntegerField(null=True, blank=True)
     inscricao_estadual = models.CharField(max_length=20)
@@ -26,6 +32,7 @@ class Destinatario(models.Model):
 
 
 class Emitente(models.Model):
+    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     cnpj = models.CharField(max_length=14)
     inscricao_estadual = models.CharField(max_length=20)
     nome_razao = models.CharField(max_length=200)
@@ -51,6 +58,7 @@ class Emitente(models.Model):
 
 
 class Produto(models.Model):
+    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     CFOP = models.IntegerField()
     EAN = models.CharField(max_length=50, blank=True, null=True)
     NCM = models.IntegerField()
@@ -65,6 +73,7 @@ class Produto(models.Model):
 
 
 class Transportador(models.Model):
+    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     frete_por_conta = models.BooleanField(default=False)
     cpf_cnpj = models.CharField(max_length=14)
     inscricao_estadual = models.CharField(max_length=20)
