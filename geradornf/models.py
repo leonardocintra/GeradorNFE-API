@@ -6,8 +6,9 @@ class Cliente(models.Model):
     email = models.EmailField()
     data_cadastro = models.DateTimeField(auto_now=True)
 
+
 class Destinatario(models.Model):
-    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='cliente_destinatario', on_delete=models.CASCADE)
     cnpj = models.CharField(max_length=14)
     indicador_ie_destinatario = models.IntegerField(null=True, blank=True)
     inscricao_estadual = models.CharField(max_length=20)
@@ -32,7 +33,7 @@ class Destinatario(models.Model):
 
 
 class Emitente(models.Model):
-    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='cliente_emitente', on_delete=models.CASCADE)
     cnpj = models.CharField(max_length=14)
     inscricao_estadual = models.CharField(max_length=20)
     nome_razao = models.CharField(max_length=200)
@@ -58,7 +59,7 @@ class Emitente(models.Model):
 
 
 class Produto(models.Model):
-    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='cliente_produto', on_delete=models.CASCADE)
     CFOP = models.IntegerField()
     EAN = models.CharField(max_length=50, blank=True, null=True)
     NCM = models.IntegerField()
@@ -73,7 +74,7 @@ class Produto(models.Model):
 
 
 class Transportador(models.Model):
-    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, related_name='cliente_transportador', on_delete=models.CASCADE)
     frete_por_conta = models.BooleanField(default=False)
     cpf_cnpj = models.CharField(max_length=14)
     inscricao_estadual = models.CharField(max_length=20)
@@ -91,7 +92,7 @@ class Transportador(models.Model):
 
 
 class TransportadorContrato(models.Model):
-    transportador_id = models.ForeignKey(Transportador, on_delete=models.CASCADE)
+    transportador = models.ForeignKey(Transportador, on_delete=models.CASCADE)
     valor_servico = models.DecimalField(decimal_places=2, max_digits=9)
     valor_base = models.DecimalField(decimal_places=2, max_digits=9)
     aliquota = models.DecimalField(decimal_places=2, max_digits=9)
