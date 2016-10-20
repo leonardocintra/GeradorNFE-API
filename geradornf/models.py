@@ -25,6 +25,7 @@ class Destinatario(models.Model):
     uf = models.CharField(max_length=2, choices=UNIDADE_FEDERATIVA)
     pais_codigo = models.IntegerField(default=1058)
     pais = models.CharField(max_length=200)
+    email = models.EmailField(blank=True, null=True)
     data_cadastro = models.DateTimeField(auto_now=True)
 
     class Meta:
