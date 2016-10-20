@@ -22,7 +22,7 @@ class DestinatarioSerializer(serializers.HyperlinkedModelSerializer):
         model = Destinatario
         fields = ('id', 'url', 'nome_razao', 'cnpj', 'indicador_ie_destinatario', 'inscricao_estadual', 'isuf', \
                 'fone', 'cep', 'logradouro', 'numero_casa', 'complemento', 'bairro', 'cidade_codigo', 'cidade', \
-                'uf', 'pais_codigo', 'pais', 'data_cadastro', 'cliente',
+                'uf', 'pais_codigo', 'pais', 'email', 'data_cadastro', 'cliente',
         )
 
 
